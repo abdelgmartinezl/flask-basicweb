@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicacion Web Basica</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Bienvenido a tu Aplicacion Web</h1>
+    <p>Esta aplicacion demuestra los conceptos basicos de Flask.</p>
+    <ul>
+        <li><a href="{{ url_for('about') }}">Acerca De</a></li>
+        <li><a href="{{ url_for('form') }}">Completa Formulario</a></li>
+    </ul>
+</body>
+</html>

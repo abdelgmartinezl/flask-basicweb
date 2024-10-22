@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+    <h1>Envio de Formulario</h1>
+
+    {% with mensajes = get_flashed_messages(with_categories=true) %}
+    {% if mensajes %}
+        <ul>
+            {% for categoria, mensaje in mensajes %}
+            <li class="{{ categoria }}"> {{ mensaje }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('form') }}">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre"><br><br>
+        <label for="edad">Edad:</label>
+        <input type="text" id="edad" name="edad"><br><br>
+        <input type="submit" value="Enviar">
+    </form>
+    <a href="{{ url_for('logout') }}">Salir de Sesion</a>
+    <a href="{{ url_for('home') }}">Vuelta al Inicio</a>
+</body>
+</html>

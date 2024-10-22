@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesion</title>
+</head>
+<body>
+    <h1>Inicio de Sesion</h1>
+
+    {% with mensajes = get_flashed_messages(with_categories=true) %}
+    {% if mensajes %}
+        <ul>
+            {% for categoria, mensaje in mensajes %}
+            <li class="{{ categoria }}"> {{ mensaje }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('login') }}">
+        <label for="username">Usuario:</label>
+        <input type="text" id="username" name="username"><br><br>
+        <label for="password">Contrasena:</label>
+        <input type="password" id="password" name="password"><br><br>
+        <input type="submit" value="Iniciar Sesion">
+    </form>
+    <a href="{{ url_for('home') }}">Vuelta al Inicio</a>
+</body>
+</html>
